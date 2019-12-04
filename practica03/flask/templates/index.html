@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Curiosity</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" type="text/css">
+</head>
+
+<body>
+    <div id="page">
+        <div id="header">
+            <div id="motto">
+                <a href="{{ url_for('index') }}" class="sitename"><img src="static/images/curiosity.png" height="50"
+                        width="142" alt="SiteName"></a>
+                <p>
+                    Tu blog de curiosidades y efemérides
+                </p>
+            </div>
+            <div id="logo">
+                <a href="{{ url_for('index') }}"><img src="static/images/logo.png" height="120" width="128"
+                        alt="LOGO"></a>
+            </div>
+            <div id="searchbar">
+                {% if session['username'] %}
+                Bienvenido {{ session['name'] }}
+                <form action="{{ url_for('logout') }}" method="post">
+                    <input type="submit" value="Log out" class="btn">
+                </form>
+                {% else %}
+                <form action="{{ url_for('login') }}" method="post">
+                    <p class="user">Usuario:</p>
+                    <input type="text" class="txtfield" name="username" required>
+                    <p class="password">Contraseña:</p>
+                    <input type="password" class="txtfield" name="password" required>
+
+                    {% if error %}
+                        <p  class="error">{{ error }}</p>
+                    {% endif %}
+                    
+                    <input type="submit" value="Log in" class="btn">
+                </form>
+                <form action="{{ url_for('signup') }}" method='get'>
+                    <input type="submit" value="Regístrate" class="btn">
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        <div id="contents">
+            <div id="main">
+                <div id="gallery">
+                    <div>
+                        <img src="static/images/banner.png" height="300" width="670">
+                    </div>
+                    <ul>
+                        <li>
+                            <img src="static/images/maps.jpg" height="50" width="50">
+                        </li>
+                        <li>
+                            <img src="static/images/history.jpg" height="50" width="50">
+                        </li>
+                        <li>
+                            <img src="static/images/science.png" height="50" width="50">
+                        </li>
+                        <li>
+                            <img src="static/images/maps.jpg" height="50" width="50">
+                        </li>
+                        <li>
+                            <img src="static/images/science.png" height="50" width="50">
+                        </li>
+                        <li>
+                            <img src="static/images/history.jpg" height="50" width="50">
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <h1>Haga click en los botones del menú para ver curiosidades y efemérides.</h1>
+                </div>
+            </div>
+            <div id="sidebar">
+                <div id="navigation">
+                    <div>
+                        <ul>
+                            {% if session['username']%}
+                            <li>
+                                <a href="{{ url_for('profile') }}">Mi perfil</a>
+                            </li>
+                            {% endif %}
+                            <li>
+                                <a href="{{ url_for('index') }}">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('about') }}">Acerca de</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('curiosity') }}">Curiosidades</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('ephemeris') }}">Efemérides</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {% if session['username'] %}
+                <div class="section">
+                    <div id="posts">
+                        <h2>Visitado recientemente</h2>
+                        <ul>
+                            {% for elem in session['historial'] %}
+                            <li>
+                                <a href="{{ elem[0] }}">{{ elem[1] }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="section">
+                    <div id="posts">
+                        <h2>Algunas curiosidades</h2>
+                        <ul>
+                            <li>
+                                <h5>¿Sabías que?...</h5>
+                                <p>
+                                    Tras el fracaso de Nintendo con Wii U, el presidente de la empresa, Satoru Iwata, se
+                                    bajó el sueldo a la mitad durante medio año para que los trabajadores no tuvieran
+                                    que sufrir las consecuencias de un error que sabía suyo.
+                                </p>
+                            </li>
+                            <li>
+                                <h5>¿Sabías que?...</h5>
+                                <p>
+                                    Nueva Delhi es la ciudad más contaminada del mundo.
+                                </p>
+                            </li>
+                        </ul>
+                        <a href="curiosity.html" class="btn2">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div>
+                <p id="footnote">
+                    <p>Alejandro Jerónimo Fuentes 2019 ©</p>
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img
+                            alt="Licencia de Creative Commons" style="border-width:0"
+                            src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />Este obra
+                    está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de
+                        Creative
+                        Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

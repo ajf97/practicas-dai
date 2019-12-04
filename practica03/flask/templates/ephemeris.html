@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Efemérides</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" type="text/css">
+</head>
+
+<body>
+	<div id="page">
+		<div id="header">
+			<div id="motto">
+				<a href="{{ url_for('index') }}" class="sitename"><img src="static/images/curiosity.png" height="50"
+						width="142" alt="SiteName"></a>
+				<p>
+					Tu blog de curiosidades y efemérides
+				</p>
+			</div>
+			<div id="logo">
+				<a href="{{ url_for('index') }}"><img src="static/images/logo.png" height="120" width="128"
+						alt="LOGO"></a>
+
+			</div>
+			<div id="searchbar">
+				{% if session['username'] %}
+				Bienvenido {{ session['name'] }}
+				<form action="{{ url_for('logout') }}" method="post">
+					<input type="submit" value="Log out" class="btn">
+				</form>
+				{% else %}
+				<form action="{{ url_for('login') }}" method="post">
+					<p class="user">Usuario:</p>
+					<input type="text" class="txtfield" name="username" required>
+					<p class="password">Contraseña:</p>
+					<input type="password" class="txtfield" name="password" required>
+					<input type="submit" value="Log in" class="btn">
+				</form>
+				<form>
+					<input type="submit" value="Regístrate" class="btn">
+				</form>
+				{% endif %}
+			</div>
+		</div>
+		<div id="contents">
+			<div id="main">
+				<div class="body">
+					El 7 de noviembre de 1519 en Toledo los jefes comuneros presentan el Primer Manifiesto a los
+					castellanos contra la política de Carlos I.
+
+					<br>El 7 de noviembre de 1659 se firma el Tratado de los Pirineos entre Mazarino, en representación
+					francesa, y don Luis de Haro, en representación española. España pierde el Rosellón menos la villa
+					de Llívia.
+					<br>
+					<br>El 7 de noviembre de 1705 en Barcelona, el archiduque Carlos es proclamado rey de España.
+					<br>
+					<br>El 7 de noviembre de 1723 en Rusia, se funda oficialmente la ciudad de Ekaterimburgo, en el día
+					en que las primeras minas de hierro de los Urales entraron en funcionamiento.
+					<br>
+					<br>El 7 de noviembre de 1733 en El Escorial (España) se firma el primer Pacto de Familia.
+					<br>
+					<br>El 7 de noviembre de 1792 las tropas revolucionarias francesas se apoderan de Bélgica, tras la
+					batalla de Jammapes, ganada a los austríacos.
+					<br>
+					<br>El 7 de noviembre de 1808 en República Dominicana se libra la batalla de Palo Hincado, que pone
+					fin al control francés en la isla de la Española, y marca el inicio del período conocido como
+					«España boba».
+					<br>
+					<br>El 7 de noviembre de 1810 en Bolivia se libra la batalla de Suipacha.
+					<br>
+					<br>El 7 de noviembre de 1811 en el territorio del actual Estados Unidos, guerreros originarios bajo
+					el mando de Tenskwatawa atacan a las tropas de William Henry Harrison, dando comienzo a la batalla
+					de Tippecanoe.
+					<br>
+					<br>El 7 de noviembre de 1813 en el marco de la Guerra de la Independencia, el Ejército
+					anglo-luso-español de Wellington penetra en Francia en persecución del ejército francés.
+					<br>
+					<br>El 7 de noviembre de 1817 en Santander (Colombia) se funda el municipio de Floridablanca.
+					<br>
+					<br>El 7 de noviembre de 1822 en Madrid (España), el poeta Manuel José Quintana inaugura la
+					Universidad de Madrid, denominada desde 1850 Universidad Central y después Universidad Complutense
+					de Madrid.
+					<br>
+					<br>El 7 de noviembre de 1823 en Madrid es ejecutado públicamente el general Riego, que el 1 de
+					enero de 1820 se había sublevado en Las Cabezas de San Juan (Sevilla), en el denominado
+					Pronunciamiento de Riego.
+					<br>
+					<br>El 7 de noviembre de 1841 en Madrid se subleva un regimiento encabezado por los generales Concha
+					y León, que asaltó el Palacio Real para apoderarse de la reina Isabel II de España. Los rebeldes
+					fueron vencidos.
+					<br>
+					<br>El 7 de noviembre de 1847 El Salvador, Honduras y Nicaragua firman la conferencia unionista
+					centroamericana conocida como Pacto de Nacaome y establecen un gobierno provisional con sede en
+					Tegucigalpa.
+					<br>
+					<br>El 7 de noviembre de 1858 en la República de Perú el presidente Ramón Castilla es reelegido,
+					después de haber dominado una revolución a principios de año.
+					<br>
+					<br>El 7 de noviembre de 1867 en la República Dominicana se inicia un movimiento político que
+					origina el régimen absolutista llamado Régimen de los Seis Años.
+					<br>
+					<br>El 7 de noviembre de 1873 en la Guerra de los Diez Años, los cubanos dirigidos por Máximo Gómez,
+					baten a las tropas españolas en La Sacra.
+					<br>
+					<br>El 7 de noviembre de 1879 Gregorio Luperón ocupa la Presidencia de la República Dominicana y
+					comienza el período de los gobiernos azules.
+					<br>
+					<br>El 7 de noviembre de 1882 España, Martina Castells Ballespí es la primera mujer que recibe la
+					investidura de Doctor en Medicina en ese país.
+					<br>
+					<br>El 7 de noviembre de 1886 en Cuba se abole la esclavitud.
+					<br>
+					<br>El 7 de noviembre de 1892 en Venezuela el general Joaquín Crespo asume el poder ejecutivo.
+					<br>
+					<br>El 7 de noviembre de 1917 en el marco de la Primera Guerra Mundial, termina la tercera batalla
+					de Gaza: fuerzas del Reino Unido conquistan Gaza al otomano">Imperio otomano.
+					<br>
+					<br>El 7 de noviembre de 1917 en el marco de la Revolución rusa, los líderes bolcheviques Vladimir
+					Lenin y León Trotsky[1]​ ocupan puestos estratégicos en Petrogrado, dando así comienzo efectivo a la
+					revolución. A veces se la llama Revolución de octubre porque, de acuerdo con el
+					<br>
+					<br>El 7 de noviembre de 1929 en Nueva York se abre al público el MOMA (Museo de Arte Moderno de
+					Nueva York).
+					<br>
+					<br>El 7 de noviembre de 1939 en Múnich (Alemania) se realiza un atentado contra Hitler en la
+					cervecería Bürgerbraükeller en la que se había fundado el partido nazi.
+					<br>
+					<br>El 7 de noviembre de 1941 durante la Batalla de Moscú y pese a encontrarse bajo asedio, Stalin
+					ordena que se realice el tradicional desfile conmemorativo de la Revolución de Octubre durante la
+					Segunda Guerra Mundial.
+					<br>
+					<br>El 7 de noviembre de 1945 México se integra a la ONU.
+					<br>
+					<br>El 7 de noviembre de 1949 en Costa Rica se aprueba la Constitución que rige actualmente.
+					<br>
+					<br>El 7 de noviembre de 1963 en Alemania Occidental, once mineros son rescatados tras catorce días
+					bajo tierra en el llamado milagro de Lengede.
+					<br>
+					<br>El 7 de noviembre de 1970 El púgil argentino Carlos Monzón vence por nocaut en el duodécimo
+					asalto a Nino Benvenuti y se consagra campeón mundial de la categoría mediano. La contienda se
+					celebró en Roma.
+					<br>
+					<br>El 7 de noviembre de 1970 en Madrid (España), escape radiactivo de un complejo cívico-militar de
+					investigación nuclear que contamina los ríos Manzanares, Jarama y Tajo
+					<br>
+					<br>El 7 de noviembre de 1978 el político español Felipe González Márquez es nombrado vicepresidente
+					de la Internacional Socialista.
+					<br>
+					<br>El 7 de noviembre de 1986 en Rosario (Argentina), el psicópata Walter De Giusti (23) asesina a
+					las abuelas del músico rosarino Fito Páez (23).
+					<br>
+					<br>El 7 de noviembre de 1987 en Nueva York (Estados Unidos), el científico español Federico Mayor
+					Zaragoza es nombrado director general de la Unesco.
+					<br>
+					<br>El 7 de noviembre de 1991 el baloncestista estadounidense Magic Johnson anuncia que está
+					infectado del virus VIH que causa el sida.
+					<br>
+					<br>El 7 de noviembre de 1996 lanzamiento de la sonda a Marte Mars Global Surveyor.
+					<br>
+					<br>El 7 de noviembre de 2001 en Quito, La Selección de Fútbol de Ecuador clasifica por primera vez
+					a una Copa del Mundo tras igualar a un gol con Uruguay.
+					<br>
+					<br>El 7 de noviembre de 2003 el Carnaval de Barranquilla fue concedido por la Unesco (en París)
+					Obra Maestra del Patrimonio Oral e Intangible de la Humanidad.
+					<br>
+					<br>El 7 de noviembre de 2005 en España, el canal de televisión Canal + cancela sus transmisiones
+					analógicas. Su frecuencia es ocupada por Cuatro. En ese momento ambas empresas eran propiedad de
+					Sogecable. Canal + continuó su emisión vía satélite.
+					<br>
+					<br>El 7 de noviembre de 2005 en Santiago de Chile, el expresidente peruano Alberto Fujimori es
+					detenido (cuando planeaba regresar al Perú) por orden del Poder Judicial chileno, que emitió un auto
+					de detención en contra de él mismo.
+					<br>
+					<br>El 7 de noviembre de 2010 en Barcelona (España), el papa Benedicto XVI ―durante su segundo viaje
+					a España― consagra el Templo Expiatorio de la Sagrada Familia como basílica menor.
+					<br>
+					<br>El 7 de noviembre de 2012 frente a las costas de Guatemala, un terremoto de 7,3 grados en la
+					escala de Richter causa 50 muertes.[2]​
+					<br>
+					<br>El 7 de noviembre de 2015 Marcha Estatal contra las Violencias Machistas, hito de movilización
+					feminista en el Estado español.
+				</div>
+			</div>
+			<div id="sidebar">
+				<div id="navigation">
+					<div>
+						<ul>
+							{% if session['username']%}
+							<li>
+								<a href="{{ url_for('profile') }}">Mi perfil</a>
+							</li>
+							{% endif %}
+							<li>
+								<a href="{{ url_for('index') }}">Inicio</a>
+							</li>
+							<li>
+								<a href="{{ url_for('about') }}">Acerca de</a>
+							</li>
+							<li>
+								<a href="{{ url_for('curiosity') }}">Curiosidades</a>
+							</li>
+							<li>
+								<a href="{{ url_for('ephemeris') }}">Efemérides</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				{% if session['username'] %}
+				<div class="section">
+					<div id="posts">
+						<h2>Visitado recientemente</h2>
+						<ul>
+							{% for elem in session['historial'] %}
+							<li>
+								<a href="{{ elem[0] }}">{{ elem[1] }}</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+				{% endif %}
+				<div class="section">
+					<div id="posts">
+						<h2>Algunas curiosidades</h2>
+						<ul>
+							<li>
+								<h5>¿Sabías que?...</h5>
+								<p>
+									Tras el fracaso de Nintendo con Wii U, el presidente de la empresa, Satoru Iwata, se
+									bajó el sueldo a la mitad durante medio año para que los trabajadores no tuvieran
+									que sufrir las consecuencias de un error que sabía suyo.
+								</p>
+							</li>
+							<li>
+								<h5>¿Sabías que?...</h5>
+								<p>
+									Nueva Delhi es la ciudad más contaminada del mundo.
+								</p>
+							</li>
+						</ul>
+						<a href="news.html" class="btn2">Ver más</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div>
+				<p id="footnote">
+					<p>Alejandro Jerónimo Fuentes 2019 ©</p>
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img
+							alt="Licencia de Creative Commons" style="border-width:0"
+							src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />Este obra
+					está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de
+						Creative
+						Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

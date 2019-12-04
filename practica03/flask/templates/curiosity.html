@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Curiosidades</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" type="text/css">
+</head>
+
+<body>
+	<div id="page">
+		<div id="header">
+			<div id="motto">
+				<a href="{{ url_for('index') }}" class="sitename"><img src="static/images/curiosity.png" height="50"
+						width="142" alt="SiteName"></a>
+				<p>
+					Tu blog de curiosidades y efemérides
+				</p>
+			</div>
+			<div id="logo">
+				<a href="{{ url_for('index') }}"><img src="static/images/logo.png" height="120" width="128"
+						alt="LOGO"></a>
+			</div>
+			<div id="searchbar">
+				{% if session['username'] %}
+				Bienvenido {{ session['name'] }}
+				<form action="{{ url_for('logout') }}" method="post">
+					<input type="submit" value="Log out" class="btn">
+				</form>
+				{% else %}
+				<form action="{{ url_for('login') }}" method="post">
+					<p class="user">Usuario:</p>
+					<input type="text" class="txtfield" name="username" required>
+					<p class="password">Contraseña:</p>
+					<input type="password" class="txtfield" name="password" required>
+					<input type="submit" value="Log in" class="btn">
+				</form>
+				<form>
+					<input type="submit" value="Regístrate" class="btn">
+				</form>
+				{% endif %}
+			</div>
+		</div>
+		<div id="contents">
+			<div id="main">
+				<div class="body">
+					1. El idioma español tiene una palabra que existe gramaticalmente y se puede pronunciar, pero no se
+					puede escribir. Por eso no podemos decirte cuál es.
+
+					<br>2. Hemos tenido tres reyes menores de 10 años: Carlos II, Isabel II y Alfonso XIII.
+
+					<br>3. España es el primer país del mundo en cuanto a aceptación de la homosexualidad, tan solo un
+					6% de la población opina que es "moralmente inaceptable".
+
+					<br>4. Pese al topicazo, el 58.6% de los españoles afirma no dormir siesta NUNCA.
+
+					<br>5. Nuestro país es el tercero más visitado del mundo, superado únicamente por Francia y Estados
+					Unidos.
+
+					<br>6. La tortilla francesa se originó en España: durante la Guerra de la Independencia y el asedio
+					a Cádiz, al escasear los alimentos, los españoles comenzaron a hacer la tortilla sin patatas, le
+					quedó el nombre de "la tortilla de cuando los franceses".
+
+					<br>7. El restaurante más caro del mundo se encuentra en Ibiza, se llama Sublimotion y la cena
+					cuesta 1.700 euros por persona.
+
+					<br>8. Tenemos un bar por cada 169 habitantes.
+
+					<br>9. Cádiz es la ciudad más antigua de Europa, tradicionalmente se dice que se fundó 80 años
+					después de la guerra de Troya.
+
+					<br>10. El símbolo del dolar ($) es una invención española, evolución de la abreviatura Ps (peso,
+					piastra o piezas de a ocho).
+
+					<br>11. Nuestro alfabeto perdió 2 letras en 2010, aunque fuentes cercanas al mismo afirman que "ya
+					lo ha superado".
+
+					<br>12. Tenemos casi tantos aeropuertos como provincias, en total, 48.
+
+					<br>13. El 7 de diciembre de 1969, Ángela Ruíz Robles, una señora gallega, inventó la 'Enciclopedia
+					Mecánica', considerada a día de hoy el primer prototipo de ebook.
+
+					<br>14. La fruta más consumida es la naranja. Claramente, no iba a ser la pera.
+
+					<br>15. El menú del día fue un invento de Franco, impulsado por el Ministerio de Información y
+					Turismo en los 60, para promocionar nuestra gastronomía.
+
+					<br>16. Hace 30.000 años, en nuestro país hacía tanto frío como en Dinamarca.
+
+					<br>18. La Familia Real tiene asignados los números del 10 al 99 del DNI, aunque el 13 se anuló por
+					superstición.
+
+					<br>19. Una ardilla NO podía cruzar España saltando de árbol en árbol.
+
+					<br>20. El rey más breve de España llevó su corona durante seis meses y doce días, no te sonará,
+					pero se llamó Luis I de Borbón.
+
+					<br>21. Querétaro, nombre de una ciudad mexicana que significa 'isla de las salamandras azules', fue
+					elegida en 2011 como la palabra más bonita del español.
+
+					<br>22. Los kilómetros de costa que tenemos en España (7.905), serían casi el equivalente de hacer
+					un ida y vuelta Madrid-Moscú (4.096,7 km).
+
+					<br>23. Estamos a la cabeza de Europa en el consumo de cocaína.
+
+					<br>24. Bebemos 11,2 litros de alcohol puro por persona al año, que es casi el doble de la media
+					mundial (6,2).
+
+					<br>25. Un grupo de españoles fueron los primeros en entrar en la Francia ocupada para liberarla de
+					los nazis.
+
+					<br>26. Somos líderes en donación de órganos.
+
+					<br>27. Manolo Prieto, autor del mítico toro de Osborne, era militante en el partido comunista.
+
+					<br>28. Son inventos españoles la fregona, el chupa chups, el submarino, el futbolín y la
+					calculadora digital.
+
+					<br>29. También se le atribuye a Doña Baldomera, hija de Mariano José de Larra, la invención de la
+					estafa piramidal a finales de 1800.
+
+					<br>30. Según el Libro Guinness, en España tenemos el mortero más grande del mundo (3,29 metros de
+					alto y 3,07 de diámetro) y la taza más grande (4,73 metros de largo y 0,85 de diámetro), se
+					construyeron en el Ayuntamiento de Macael (Almería).
+
+					<br>31. También el de "mayor número de gente haciendo un globo de chicle al mismo tiempo", que oye,
+					no está mal.
+
+					<br>32. Hay 44 sitios en España que son Patrimonio de la Humanidad por la UNESCO, lo que nos sitúa
+					como tercer país en el mundo con más maravillas que visitar.
+
+					<br>33. La Alhambra de Granada es el lugar más visitado de España.
+
+					<br>34. Tenemos un buen número de museos rarunos, por ejemplo, el Museo de Microminiaturas en
+					Guadalest (Alicante) o el Parque de la Vida en Luarca (Asturias) que tiene un total de nueve
+					calamares gigantes.
+
+					<br>35. Los nombres más populares en España son Antonio, José, Manuel, Francisco y Juan para chico y
+					María Carmen, María, Carmen, Josefa e Isabel entre las mujeres, según datos del INE.
+
+					<br>36. El terremoto de mayor magnitud en nuestro país tuvo lugar en Torrevieja (Alicante), el 21 de
+					marzo de 1829. Un 6,6 en la escala Richter.
+
+					<br>37. Nuestra Biblioteca Nacional contiene alrededor de veinte millones de piezas.
+
+					<br>38. Con 14 días festivos al año, somos uno de los países de Europa con más días no laborables.
+
+					<br>39. La Inquisión quemó un total de 59 brujas en nuestro país.
+
+					<br>40. La primera medalla que logró España en unos Juegos Olímpicos fue para la pareja de
+					cesta-punta formada por José de Amézola y Francisco Villota en los Juegos Olímpicos de París 1900.
+				</div>
+			</div>
+			<div id="sidebar">
+				<div id="navigation">
+					<div>
+						<ul>
+							{% if session['username']%}
+							<li>
+								<a href="{{ url_for('profile') }}">Mi perfil</a>
+							</li>
+							{% endif %}
+							<li>
+								<a href="{{ url_for('index') }}">Inicio</a>
+							</li>
+							<li>
+								<a href="{{ url_for('about') }}">Acerca de</a>
+							</li>
+							<li>
+								<a href="{{ url_for('curiosity') }}">Curiosidades</a>
+							</li>
+							<li>
+								<a href="{{ url_for('ephemeris') }}">Efemérides</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				{% if session['username'] %}
+				<div class="section">
+					<div id="posts">
+						<h2>Visitado recientemente</h2>
+						<ul>
+							{% for elem in session['historial'] %}
+							<li>
+								<a href="{{ elem[0] }}">{{ elem[1] }}</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+				{% endif %}
+				<div class="section">
+					<div id="posts">
+						<h2>Algunas curiosidades</h2>
+						<ul>
+							<li>
+								<h5>¿Sabías que?...</h5>
+								<p>
+									Tras el fracaso de Nintendo con Wii U, el presidente de la empresa, Satoru Iwata, se
+									bajó el sueldo a la mitad durante medio año para que los trabajadores no tuvieran
+									que sufrir las consecuencias de un error que sabía suyo.
+								</p>
+							</li>
+							<li>
+								<h5>¿Sabías que?...</h5>
+								<p>
+									Nueva Delhi es la ciudad más contaminada del mundo.
+								</p>
+							</li>
+						</ul>
+						<a href="news.html" class="btn2">Ver más</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div>
+				<p id="footnote">
+					<p>Alejandro Jerónimo Fuentes 2019 ©</p>
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img
+							alt="Licencia de Creative Commons" style="border-width:0"
+							src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />Este obra
+					está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de
+						Creative
+						Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

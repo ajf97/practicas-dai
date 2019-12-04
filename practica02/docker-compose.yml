@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+  flask-holamundo:
+    build: 
+      context: .
+      dockerfile: flask_dockerfile
+    ports:
+      - "8080:5000"
+    volumes:
+      - ./flask/holaMundo:/flask/holaMundo
+    working_dir: /flask/
+  
+  flask-manejourl:
+    build: 
+      context: .
+      dockerfile: flask_dockerfile
+    ports:
+      - "8080:5000"
+    volumes:
+      - ./flask/manejoURL:/flask/manejoURL
+    working_dir: /flask/
+  
+  flask-imagenesbinarias:
+    build: 
+      context: .
+      dockerfile: flask_dockerfile
+    ports:
+      - "8080:5000"
+    volumes:
+      - ./flask/imagenesBinarias:/flask/imagenesBinarias
+    working_dir: /flask/
+  
+  flask-imagenesvectoriales:
+    build: 
+      context: .
+      dockerfile: flask_dockerfile
+    ports:
+      - "8080:5000"
+    volumes:
+      - ./flask/imagenesVectoriales:/flask/imagenesVectoriales
+    working_dir: /flask/

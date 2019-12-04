@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar perfil</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" type="text/css">
+</head>
+
+<body style="text-align: center;">
+    <div id="page">
+        <form method="post" style="display: inline-block;"">
+            <p>Email:</p>
+            <input type="email" name="email" id="email" value="{{ session['email'] }}" required>
+            <p>Nombre:</p>
+            <input type="text" name="name" id="name" value="{{ session['name'] }}" required>
+            <p>Contraseña:</p>
+            <input type="password" name="password" id="password" required><br><br>
+            <input type="submit" value="Guardar" class="btn">
+        </form>
+    </div>
+</body>
+
+</html>

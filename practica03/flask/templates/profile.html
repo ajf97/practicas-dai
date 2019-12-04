@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" type="text/css">
+</head>
+
+<body style="text-align: center;"> 
+    <div id="page" style="display: inline-block;">
+        <p>Email: {{ session['email'] }}</p>
+        <p>Usuario: {{ session['username'] }}</p>
+        <p>Nombre: {{ session['name'] }}</p>
+        <form action="{{ url_for('edit') }}" method="get">
+            <input type="submit" value="Editar" class="btn">
+        </form>
+    </div>
+</body>
+
+</html>

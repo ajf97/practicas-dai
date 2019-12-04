@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" type="text/css">
+</head>
+
+<body style="text-align: center;">
+    <div id="page">
+        <form method="post" style="display: inline-block;">
+            <p>Email:</p>
+            <input type="email" name="email" id="email" required>
+            <p>Nombre:</p>
+            <input type="text" name="name" id="name" required>
+            <p>Usuario:</p>
+            <input type="text" name="username" id="username" required>
+            <p>Contraseña:</p>
+            <input type="password" name="password" id="password" required> <br><br>
+            <input type="submit" value="Registrarse" class="btn">
+
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+        </form>
+
+    </div>
+</body>
+
+</html>
