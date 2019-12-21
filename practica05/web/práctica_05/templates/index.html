@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Curiosity{% endblock %}
+{% block content %}
+<div class="card" style="text-align: center;">
+    <div>
+        <img class="card-img-top" src="{% static 'images/banner.png' %}" height="300" width="670">
+    </div>
+    <div class="card-body">
+        <h1>Haga click en los botones del menú para ver curiosidades y efemérides.</h1>
+    </div>
+</div>
+
+{%if not request.session.username %}
+<button type="button" class="btn btn-primary  btn-lg btn-block" onclick="window.location.href = '{% url 'signup' %}';">Regístrate</button>
+{%endif%}
+
+{% endblock %}
