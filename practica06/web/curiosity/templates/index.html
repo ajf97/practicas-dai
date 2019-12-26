@@ -10,9 +10,4 @@
         <h1>Haga click en los botones del menú para ver curiosidades y efemérides.</h1>
     </div>
 </div>
-
-{%if not request.session.username %}
-<button type="button" class="btn btn-primary  btn-lg btn-block" onclick="window.location.href = '{% url 'signup' %}';">Regístrate</button>
-{%endif%}
-
 {% endblock %}

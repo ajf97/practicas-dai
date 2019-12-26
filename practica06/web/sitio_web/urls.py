@@ -19,5 +19,6 @@ from django.conf.urls import include, url
 
 urlpatterns = [
   url(r'^curiosity/', include('curiosity.urls')),
+  url(r'^accounts/', include('allauth.urls')),
   url(r'^admin/', admin.site.urls),
 ]

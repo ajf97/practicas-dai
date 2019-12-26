@@ -31,14 +31,8 @@
                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Cerrar sesión</button>
             </form>
             {% else %}
-            <form class="form-inline" action="{% url 'login' %}" method="post">
-                {% if error %}
-                <p style="color: red;">{{ error }}&nbsp;&nbsp;</p>
-                {% endif %}
-                <input class="form-control mr-sm-2" type="text" placeholder="Usuario" name="username" required>
-                <input class="form-control mr-sm-2" type="password" placeholder="Contraseña" name="password" required>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Iniciar sesión</button>
-            </form>
+            <a class="btn btn-primary" href="{% url 'account_login'%}">Iniciar sesión</a>
+            <a class="btn btn-success" href="{% url 'account_signup'%}">Regístrate</a>
             {% endif %}
         </div>
     </nav>

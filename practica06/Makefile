@@ -14,10 +14,10 @@ django-startapp:
 	sudo chown -R ${USER}:${USER} .
 
 django-migrate:
-	docker-compose run web python manage.py migrate curiosity
+	docker-compose run web python manage.py migrate 
 
 django-make-migrations:
-	docker-compose run web python manage.py makemigrations curiosity
+	docker-compose run web python manage.py makemigrations
 
 django-createsuperuser:
 	docker-compose run web python manage.py createsuperuser
