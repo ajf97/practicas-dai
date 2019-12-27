@@ -1,24 +1,17 @@
-{% extends "base_user.html" %}
+{% extends "base.html" %}
 {% load static %}
-{% block title %}Perfil{% endblock %}
-{% block body %}
+{% block title %}Mi perfil{% endblock %}
+{% block content %}
 
-<body style="text-align: center;">
-    <div class="card text-center">
-        <div class="card-header">
-            Tu perfil
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Email</h5>
-            <p class="card-text">{{ request.session.email }}</p>
-            <h5 class="card-title">Usuario</h5>
-            <p class="card-text">{{ request.session.username }}</p>
-            <h5 class="card-title">Nombre</h5>
-            <p class="card-text">{{ request.session.name }}</p>
-            <form action="{% url 'edit' %}" method="get">
-                <input type="submit" value="Editar" class="btn btn-primary">
-            </form>
-        </div>
+<body>
+    <br>
+    <div style="text-align: center;">
+        <h2>Mi perfil</h2><br>
+        <p>Email: {{ user.email }}</p>
+        <p>Usuario: {{ user.username }}</p>
+        <p>Nombre: {{ user.first_name }}</p>
+        <p>Apellidos: {{ user.last_name }}</p>
+        <a class="btn btn-primary" href="">Editar</a>
     </div>
 </body>
 {% endblock %}

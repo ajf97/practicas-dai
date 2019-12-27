@@ -1,18 +1,15 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-</head>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ musician.name }}{% endblock %}
+{% block content %}
 
-
-
-<div class="musician">
+<div class="musician" style="text-align: center;">
+    <br>
     <h2>{{ musician.name }}</h2>
     <p>Fecha de nacimiento: {{ musician.birth_date }}</p>
     <p>Instrumento: {{ musician.instrument }}</p>
     <a class="btn btn-primary" href="{% url 'musician_edit' pk=musician.pk %}">Editar</a>
     <a class="btn btn-danger" href="{% url 'musician_delete' pk=musician.pk %}">Borrar</a>
 </div>
+
+{% endblock %}

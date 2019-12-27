@@ -1,6 +1,7 @@
 from django import forms
 
 from .models import MusicalGroup, Album, Musician
+from django.contrib.auth.models import User
 
 class MusicalGroupForm(forms.ModelForm):
     class Meta:
@@ -18,3 +19,9 @@ class MusicianForm(forms.ModelForm):
     class Meta:
         model = Musician
         fields = ('name', 'birth_date', 'instrument')
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'password', 'email')

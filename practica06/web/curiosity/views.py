@@ -8,23 +8,13 @@ import logging
 
 log = logging.getLogger(__name__) # Para mostrar mensajes por consola con log.error
 
-# Create your views here.
-
 
 def index(request):
     return render(request, 'index.html', {})
 
 
-def logout(request):
-    pass
-
-
-def login(request):
-    pass
-
-
 def profile(request):
-    pass
+    return render(request, 'profile.html', {})
 
 
 def about(request):

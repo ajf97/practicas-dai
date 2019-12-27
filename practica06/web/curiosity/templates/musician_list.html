@@ -1,16 +1,18 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-</head>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Músicos{% endblock %}
+{% block content %}
 
+    <div style="text-align: center;">
+        <div class="card" style="text-align: center;">
+            <ul class="list-group list-group-flush">
+                {% for musician in musicians %}
+                <li class="list-group-item"><a href="{% url 'musician_detail' pk=musician.pk %}">{{ musician.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <br>
+        <a class="btn btn-secondary" href="{% url 'musician_new'%}">Añadir músico</a>
+    </div>
 
-{% for musician in musicians %}
-<div class="musician">
-    <h2><a href="{% url 'musician_detail' pk=musician.pk %}">{{ musician.name }}</a></h2>
-</div>
-{% endfor %}
-<a class="btn btn-secondary" href="{% url 'musician_new'%}">Añadir músico</a>
+{% endblock %}

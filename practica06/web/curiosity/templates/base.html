@@ -25,11 +25,8 @@
                 <img src="{% static 'images/logo.png' %}" height="30" width="30" alt="">
                 Curiosity - Tu blog de curiosidades y efemérides
             </a>
-            {% if request.session.username %}
-            <form class="form-inline" action="{% url 'logout' %}" method="post">
-                <h5 class="text-white h4">Bienvenido {{ request.session.name }}</h5> &nbsp;&nbsp;
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Cerrar sesión</button>
-            </form>
+            {% if user.is_authenticated %}
+            <a class="btn btn-outline-danger my-2 my-sm-0" href="{% url 'account_logout' %}">Cerrar sesión</a>
             {% else %}
             <a class="btn btn-primary" href="{% url 'account_login'%}">Iniciar sesión</a>
             <a class="btn btn-success" href="{% url 'account_signup'%}">Regístrate</a>
@@ -42,16 +39,21 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="list-group">
-                    {% if request.session.username %}
+                    {% if user.is_authenticated %}
                     <a href="{% url 'profile' %} " class="list-group-item">Mi perfil</a>
                     {% endif %}
                     <a href="{% url 'index' %}" class="list-group-item">Inicio</a>
                     <a href="{% url 'about' %}" class="list-group-item">Acerca de</a>
                     <a href="{% url 'curiosity' %}" class="list-group-item">Curiosidades</a>
                     <a href="{% url 'ephemeris' %}" class="list-group-item">Efemérides</a>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'musicalgroup_list' %} " class="list-group-item">Grupos músicales</a>
+                    <a href="{% url 'musician_list' %} " class="list-group-item">Músicos</a>
+                    <a href="{% url 'album_list' %} " class="list-group-item">Álbums</a>
+                    {% endif %}
                 </div>
                 <br>
-                {% if request.session.username %}
+                {% if user.is_authenticated %}
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Visitado recientemente</h4>
@@ -85,7 +87,7 @@
                         </p>
 
 
-                        <a href="curiosity.html" class="btn btn-primary">Ver más</a>
+                        <a href="{% url 'curiosity' %}" class="btn btn-primary">Ver más</a>
                     </div>
                 </div>
             </div>
