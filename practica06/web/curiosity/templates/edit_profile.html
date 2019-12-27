@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Editar usuario{% endblock %}
+{% block content %}
+<div>
+<br>
+    <h2>Editar perfil</h2><br>
+    <form method="POST" class="user-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+
+</div>
+{% endblock %}
+
+
+
+
