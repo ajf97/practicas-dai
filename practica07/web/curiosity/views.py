@@ -10,6 +10,7 @@ import logging
 
 log = logging.getLogger(__name__) # Para mostrar mensajes por consola con log.error
 
+# La página de error 404 personalizada solo se ve cuando DEBUG=False (modo producción)
 
 @login_required
 def historial(request, page):
@@ -240,4 +241,9 @@ def musicalgroup_delete(request, pk):
     return redirect('musicalgroup_list')
 
 
-# La página de error 404 personalizada solo se ve cuando DEBUG=False (modo producción)
+@login_required
+def settings(request):
+    return render(request, 'settings.html', {})
+
+
+

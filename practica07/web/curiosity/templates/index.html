@@ -3,11 +3,13 @@
 {% block title %}Curiosity{% endblock %}
 {% block content %}
 <div class="card" style="text-align: center;">
-    <div>
+    <div id="picture_header">
         <img class="card-img-top" src="{% static 'images/banner.png' %}" height="300" width="670">
     </div>
     <div class="card-body">
         <h1>Haga click en los botones del menú para ver curiosidades y efemérides.</h1>
     </div>
+    <button class="btn btn-primary" id="hide_picture">Ocultar imagen</button>
+    <button class="btn btn-primary" id="show_picture">Mostrar imagen</button>
 </div>
 {% endblock %}
