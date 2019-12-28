@@ -4,30 +4,80 @@ from django.template import RequestContext
 from .forms import MusicianForm, AlbumForm, MusicalGroupForm, UserForm
 from .models import Musician, Album, MusicalGroup
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 import logging 
 
 log = logging.getLogger(__name__) # Para mostrar mensajes por consola con log.error
 
 
+@login_required
+def historial(request, page):
+    if 'historial' in request.session:
+        encontrado = False
+        for elem in request.session['historial']:
+            if elem[1] == page[1]:
+                encontrado = True
+        
+        if not encontrado:
+            request.session['historial'] = [page] + request.session['historial']
+
+        if len(request.session['historial']) > 3:
+            request.session['historial'].pop()
+    else:
+        request.session['historial'] = [page]
+
+
+
 def index(request):
-    return render(request, 'index.html', {})
+    historial(request, (reverse('index'), 'Inicio'))
+
+    if request.user.is_authenticated:
+        context = {'historial': request.session['historial']}
+    else:
+        context = {}
+
+    return render(request, 'index.html', context)
 
 
+@login_required
 def profile(request):
-    return render(request, 'profile.html', {})
+    historial(request, (reverse('profile'), 'Mi Perfil'))
+    context = {'historial': request.session['historial']}
+    return render(request, 'profile.html', context)
 
 
 def about(request):
-    return render(request, 'about.html', {})
+    historial(request, (reverse('about'), 'Acerca de'))
+
+    if request.user.is_authenticated:
+        context = {'historial': request.session['historial']}
+    else:
+        context = {}
+
+    return render(request, 'about.html', context)
 
 
 def curiosity(request):
-    return render(request, 'curiosity.html', {})
+    historial(request, (reverse('curiosity'), 'Curiosidades'))
+
+    if request.user.is_authenticated:
+        context = {'historial': request.session['historial']}
+    else:
+        context = {}
+
+    return render(request, 'curiosity.html', context)
 
 
 def ephemeris(request):
-    return render(request, 'ephemeris.html', {})
+    historial(request, (reverse('ephemeris'), 'Efemérides'))
+
+    if request.user.is_authenticated:
+        context = {'historial': request.session['historial']}
+    else:
+        context = {}
+
+    return render(request, 'ephemeris.html', context)
 
 
 @login_required
@@ -61,8 +111,10 @@ def musician_new(request):
 
 @login_required
 def musician_list(request):
+    historial(request, (reverse('musician_list'), 'Músicos'))
     musicians = Musician.objects.all()
-    return render(request, 'musician_list.html', {'musicians': musicians})
+    context = {'musicians': musicians, 'historial': request.session['historial']}
+    return render(request, 'musician_list.html', context)
 
 
 @login_required
@@ -107,8 +159,10 @@ def album_new(request):
 
 @login_required
 def album_list(request):
+    historial(request, (reverse('album_list'), 'Álbum'))
     albums = Album.objects.all()
-    return render(request, 'album_list.html', {'albums': albums})
+    context = {'albums': albums, 'historial': request.session['historial']}
+    return render(request, 'album_list.html', context)
 
 
 @login_required
@@ -153,8 +207,10 @@ def musicalgroup_new(request):
 
 @login_required
 def musicalgroup_list(request):
+    historial(request, (reverse('musicalgroup_list'), 'Grupos musicales'))
     musicalgroups = MusicalGroup.objects.all()
-    return render(request, 'musicalgroup_list.html', {'musicalgroups': musicalgroups})
+    context = {'musicalgroups': musicalgroups, 'historial': request.session['historial']}
+    return render(request, 'musicalgroup_list.html', context)
 
 
 @login_required
@@ -179,7 +235,7 @@ def musicalgroup_edit(request, pk):
 
 @login_required
 def musicalgroup_delete(request, pk):
-    musicalgroup = get_object_or_404(musicalgroup, pk=pk)
+    musicalgroup = get_object_or_404(MusicalGroup, pk=pk)
     musicalgroup.delete()
     return redirect('musicalgroup_list')
 

@@ -26,10 +26,13 @@
                 Curiosity - Tu blog de curiosidades y efemérides
             </a>
             {% if user.is_authenticated %}
+            <h3 class="text-white h4">Bienvenido {{ user.username }}</h3> 
             <a class="btn btn-outline-danger my-2 my-sm-0" href="{% url 'account_logout' %}">Cerrar sesión</a>
             {% else %}
-            <a class="btn btn-primary" href="{% url 'account_login'%}">Iniciar sesión</a>
-            <a class="btn btn-success" href="{% url 'account_signup'%}">Regístrate</a>
+            <div class="button-box col-lg-15">
+                <a class="btn btn-primary" href="{% url 'account_login'%}">Iniciar sesión</a>
+                <a class="btn btn-success" href="{% url 'account_signup'%}">Regístrate</a>
+            </div>
             {% endif %}
         </div>
     </nav>
@@ -58,7 +61,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Visitado recientemente</h4>
                         <ul>
-                            {% for elem in request.session.historial %}
+                            {% for elem in historial %}
                             <li>
                                 <a class="card-link" href="{{ elem.0 }}">{{ elem.1 }}</a>
                             </li>

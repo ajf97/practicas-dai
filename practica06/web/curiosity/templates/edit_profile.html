@@ -8,6 +8,7 @@
     <form method="POST" class="user-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url 'account_change_password' %}">Cambiar contraseña</a>
     </form>
 
 </div>
