@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Grupos músicales{% endblock %}
+{% block content %}
+
+    <div style="text-align: center;">
+        <div class="card" style="text-align: center;">
+            <ul class="list-group list-group-flush">
+                {% for musicalgroup in musicalgroups %}
+                <li class="list-group-item"><a href="{% url 'musicalgroup_detail' pk=musicalgroup.pk %}">{{ musicalgroup.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <br>
+        <a class="btn btn-secondary" href="{% url 'musicalgroup_new'%}">Crear grupo musical</a>
+    </div>
+
+{% endblock %}
+
