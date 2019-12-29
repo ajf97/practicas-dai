@@ -43,7 +43,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <div class="list-group">
+                <div class="list-group" id="menu">
                     {% if user.is_authenticated %}
                     <a href="{% url 'profile' %} " class="list-group-item">Mi perfil</a>
                     <a href="{% url 'settings' %} " class="list-group-item">Ajustes</a>
@@ -57,6 +57,13 @@
                     <a href="{% url 'musician_list' %} " class="list-group-item">Músicos</a>
                     <a href="{% url 'album_list' %} " class="list-group-item">Álbums</a>
                     {% endif %}
+                </div>
+                <br>
+                <div id="settings-buttons" class="text-center">
+                    <button class="btn btn-primary" id="increase_font">Aumentar tamaño letra</button><br><br>
+                    <button class="btn btn-primary" id="decrease_font">Disminuir tamaño letra</button><br><br>
+                    <button class="btn btn-primary" id="dark_mode">Modo oscuro</button><br><br>
+                    <button class="btn btn-primary" id="light_mode">Modo claro</button>
                 </div>
                 <br>
                 {% if user.is_authenticated %}
