@@ -5,11 +5,11 @@ $(document).ready(function() {
     $("#show_picture").hide();
     $("#light_mode").hide();
     
-    // Mostrar y ocultar la imagen de la página principal
+    // Mostrar y ocultar la imagen de la página principal con animación
 
     $("#hide_picture").click(function(){
 
-        $("#picture_header").hide();
+        $("#picture_header").hide(2000);
         $("#hide_picture").hide();
         $("#show_picture").show();
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
 
     $("#show_picture").click(function(){
 
-        $("#picture_header").show();
+        $("#picture_header").show("slow");
         $("#hide_picture").show();
         $("#show_picture").hide();
 
