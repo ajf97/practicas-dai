@@ -5,6 +5,8 @@ from .forms import MusicianForm, AlbumForm, MusicalGroupForm, UserForm
 from .models import Musician, Album, MusicalGroup
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.http import JsonResponse
+from django.core.paginator import Paginator
 
 import logging 
 
@@ -242,8 +244,13 @@ def musicalgroup_delete(request, pk):
 
 
 @login_required
-def settings(request):
-    return render(request, 'settings.html', {})
+def reclama_datos(request):
+    
+    page_size = 3
 
+    musicalgroups = MusicalGroup.objects.all().values()
+    paginator = Paginator(musicalgroups, page_size)
+    page = request.GET.get('page')
+    musicalgroups = paginator.page(page)
 
-
+    return JsonResponse(list(musicalgroups), safe=False)

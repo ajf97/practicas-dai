@@ -1,18 +1,62 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Grupos músicales{% endblock %}
+{% block script %}
+<script>
+    var pagina_actual = 1;;
+
+    // if (pagina_actual >= 1) $('#back-button').show();
+    // if (pagina_actual <= 1) $('#back-button').hide();
+
+    function load_data(page){
+            $.ajax({
+                url: "{% url 'reclama_datos' %}",
+                type: 'GET',
+                data: 'page='+page,
+    
+                success: function(datos){
+                    Visualiza_datos(datos);  
+                },
+    
+                error: function(){
+                    alert('Error al cargar los datos');
+                }
+            });
+    };
+
+    function Visualiza_datos(datos){
+            // Parsear datos
+
+            for(var i = 0; i < datos.length; i++){
+                var jsonData = datos[i];
+
+                var url = "{% url 'musicalgroup_detail' 0 %}".replace('0', jsonData.id);
+
+                $("#lista-grupos-musicales").append("<li class='list-group-item'>"+
+                    `<a href='${url}'>` + jsonData.name+"</a></li>");
+            }
+    };
+
+    // Al cargarse la página por defecto
+
+      window.onload = function() {
+        load_data(pagina_actual);
+    };
+
+</script>
+{% endblock %}
 {% block content %}
 
     <div style="text-align: center;">
-        <div class="card" style="text-align: center;">
-            <ul class="list-group list-group-flush">
-                {% for musicalgroup in musicalgroups %}
-                <li class="list-group-item"><a href="{% url 'musicalgroup_detail' pk=musicalgroup.pk %}">{{ musicalgroup.name }}</a></li>
-                {% endfor %}
+        <div class="card" style="text-align: center;" id="paginar">
+            <ul class="list-group list-group-flush" id="lista-grupos-musicales">
             </ul>
         </div>
         <br>
+
         <a class="btn btn-secondary" href="{% url 'musicalgroup_new'%}">Crear grupo musical</a>
+        <a id="backbutton" class="btn btn-danger text-white" onclick="pagina_actual--; load_data(pagina_actual);">Atrás</a>
+        <a class="btn btn-primary text-white" onclick="pagina_actual++; load_data(pagina_actual);">Siguiente</a>
     </div>
 
 {% endblock %}

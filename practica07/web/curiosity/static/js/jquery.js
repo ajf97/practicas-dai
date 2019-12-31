@@ -66,7 +66,5 @@ $(document).ready(function() {
         $("body").css({'font-size':fontSize});
 
     });
-
-
-  
+ 
 });

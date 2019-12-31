@@ -16,6 +16,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{% static 'js/jquery.js' %}"></script>
 
+    {% block script %}{% endblock %}
+
 </head>
 
 <body>
@@ -46,7 +48,6 @@
                 <div class="list-group" id="menu">
                     {% if user.is_authenticated %}
                     <a href="{% url 'profile' %} " class="list-group-item">Mi perfil</a>
-                    <a href="{% url 'settings' %} " class="list-group-item">Ajustes</a>
                     {% endif %}
                     <a href="{% url 'index' %}" class="list-group-item">Inicio</a>
                     <a href="{% url 'about' %}" class="list-group-item">Acerca de</a>

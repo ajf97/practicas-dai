@@ -10,7 +10,7 @@ urlpatterns = [
   url(r'^about', views.about, name='about'),
   url(r'^curiosity', views.curiosity, name='curiosity'),
   url(r'^ephemeris', views.ephemeris, name='ephemeris'),
-   url(r'^settings', views.settings, name='settings'),
+  url(r'get_data', views.reclama_datos, name='reclama_datos'),
 
   path('musician/<int:pk>/', views.musician_detail, name='musician_detail'),
   url(r'^musician/new', views.musician_new, name='musician_new'),
