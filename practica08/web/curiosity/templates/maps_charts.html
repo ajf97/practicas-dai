@@ -14,7 +14,9 @@ crossorigin=""/>
 {% endblock %}
 {% block content %}
 <br>
-<h4>Escuela de informática</h4>
+<div style="text-align:center; margin:auto;">
+    <h4>Escuela de informática</h4>
+
 
 <div id="mapid" style="width: 600px; height: 400px; display: inline-block;"></div>
 <script>
@@ -93,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <div id="grafica2" style="width:100%; height:400px;"></div>
 <script>
-    console.log('{{ albumcounts.0 }}');
     Highcharts.chart('grafica2', {
     chart: {
         type: 'column'
@@ -138,6 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }]
 });
 </script>
-
+</div>
 {% endblock %}
 
