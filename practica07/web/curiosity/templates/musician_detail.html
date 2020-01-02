@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ musician.name }}{% endblock %}
+{% block content %}
+
+<div class="musician" style="text-align: center;">
+    <br>
+    <h2>{{ musician.name }}</h2>
+    <p>Fecha de nacimiento: {{ musician.birth_date }}</p>
+    <p>Instrumento: {{ musician.instrument }}</p>
+    <a class="btn btn-primary" href="{% url 'musician_edit' pk=musician.pk %}">Editar</a>
+    <a class="btn btn-danger" href="{% url 'musician_delete' pk=musician.pk %}">Borrar</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Mi perfil{% endblock %}
+{% block content %}
+
+<body>
+    <br>
+    <div style="text-align: center;">
+        <h2>Mi perfil</h2><br>
+        <p>Email: {{ user.email }}</p>
+        <p>Usuario: {{ user.username }}</p>
+        <p>Nombre: {{ user.first_name }}</p>
+        <p>Apellidos: {{ user.last_name }}</p>
+        <a class="btn btn-primary" href="{% url 'edit_profile' %}">Editar</a>
+    </div>
+</body>
+{% endblock %}

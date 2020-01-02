@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    {% block script %}{% endblock %}
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'images/logo.png' %}" height="30" width="30" alt="">
+                Curiosity - Tu blog de curiosidades y efemérides
+            </a>
+            {% if user.is_authenticated %}
+            <h3 class="text-white h4">Bienvenido {{ user.username }}</h3> 
+            <a class="btn btn-outline-danger my-2 my-sm-0" href="{% url 'account_logout' %}">Cerrar sesión</a>
+            {% else %}
+            <div class="button-box col-lg-15">
+                <a class="btn btn-primary" href="{% url 'account_login'%}">Iniciar sesión</a>
+                <a class="btn btn-success" href="{% url 'account_signup'%}">Regístrate</a>
+            </div>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="list-group" id="menu">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'profile' %} " class="list-group-item">Mi perfil</a>
+                    {% endif %}
+                    <a href="{% url 'index' %}" class="list-group-item">Inicio</a>
+                    <a href="{% url 'about' %}" class="list-group-item">Acerca de</a>
+                    <a href="{% url 'curiosity' %}" class="list-group-item">Curiosidades</a>
+                    <a href="{% url 'ephemeris' %}" class="list-group-item">Efemérides</a>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'musicalgroup_list' %} " class="list-group-item">Grupos músicales</a>
+                    <a href="{% url 'musician_list' %} " class="list-group-item">Músicos</a>
+                    <a href="{% url 'album_list' %} " class="list-group-item">Álbums</a>
+                    {% endif %}
+                </div>
+                <br>
+                <div id="settings-buttons" class="text-center">
+                    <button class="btn btn-primary" id="increase_font">Aumentar tamaño letra</button><br><br>
+                    <button class="btn btn-primary" id="decrease_font">Disminuir tamaño letra</button><br><br>
+                    <button class="btn btn-primary" id="dark_mode">Modo oscuro</button><br><br>
+                    <button class="btn btn-primary" id="light_mode">Modo claro</button>
+                </div>
+                <br>
+                {% if user.is_authenticated %}
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Visitado recientemente</h4>
+                        <ul>
+                            {% for elem in historial %}
+                            <li>
+                                <a class="card-link" href="{{ elem.0 }}">{{ elem.1 }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+                <br>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Algunas curiosidades</h4>
+
+
+                        <h5>¿Sabías que?...</h5>
+                        <p>
+                            Tras el fracaso de Nintendo con Wii U, el presidente de la empresa, Satoru Iwata, se
+                            bajó el sueldo a la mitad durante medio año para que los trabajadores no tuvieran
+                            que sufrir las consecuencias de un error que sabía suyo.
+                        </p>
+
+
+                        <h5>¿Sabías que?...</h5>
+                        <p>
+                            Nueva Delhi es la ciudad más contaminada del mundo.
+                        </p>
+
+
+                        <a href="{% url 'curiosity' %}" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <br>
+    <footer class="py-5 bg-dark navbar-fixed-bottom">
+        <div class="container">
+            <p class="m-0 text-center text-white">
+                Alejandro Jerónimo Fuentes 2019 © -
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img
+                        alt="Licencia de Creative Commons" style="border-width:0"
+                        src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />Este obra
+                está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de
+                    Creative
+                    Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
+            </p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+</body>
+
+</html>
