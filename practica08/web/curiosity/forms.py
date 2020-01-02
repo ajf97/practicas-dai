@@ -18,7 +18,7 @@ class AlbumForm(forms.ModelForm):
 class MusicianForm(forms.ModelForm):
     class Meta:
         model = Musician
-        fields = ('name', 'birth_date', 'instrument')
+        fields = ('name', 'birth_date', 'instrument', 'birth_city', 'latitude', 'longitude')
 
 
 class UserForm(forms.ModelForm):

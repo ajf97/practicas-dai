@@ -258,4 +258,5 @@ def reclama_datos(request):
 
 @login_required
 def maps_charts(request):
-    return render(request, 'maps_charts.html', {})
+    historial(request, (reverse('maps_charts'), 'Mapas y gráficas'))
+    return render(request, 'maps_charts.html', {'historial': request.session['historial']})
