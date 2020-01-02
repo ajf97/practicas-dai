@@ -5,6 +5,9 @@ class Musician(models.Model):
     name = models.CharField(max_length=35)
     birth_date = models.DateField(blank=False, null=True)
     instrument = models.CharField(max_length=15)
+    birth_city = models.CharField(blank=True, max_length=30)
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
 
     def __str__(self):
         return self.name
