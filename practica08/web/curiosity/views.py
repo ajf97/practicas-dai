@@ -254,3 +254,8 @@ def reclama_datos(request):
     musicalgroups = paginator.page(page)
 
     return JsonResponse(list(musicalgroups), safe=False)
+
+
+@login_required
+def maps_charts(request):
+    return render(request, 'maps_charts.html', {})

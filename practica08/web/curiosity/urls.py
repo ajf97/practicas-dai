@@ -11,6 +11,7 @@ urlpatterns = [
   url(r'^curiosity', views.curiosity, name='curiosity'),
   url(r'^ephemeris', views.ephemeris, name='ephemeris'),
   url(r'get_data', views.reclama_datos, name='reclama_datos'),
+  url(r'^maps_charts', views.maps_charts, name='maps_charts'),
 
   path('musician/<int:pk>/', views.musician_detail, name='musician_detail'),
   url(r'^musician/new', views.musician_new, name='musician_new'),
