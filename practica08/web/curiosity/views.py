@@ -259,4 +259,6 @@ def reclama_datos(request):
 @login_required
 def maps_charts(request):
     historial(request, (reverse('maps_charts'), 'Mapas y gráficas'))
-    return render(request, 'maps_charts.html', {'historial': request.session['historial']})
+    count_list = [len(MusicalGroup.objects.all()), len(Musician.objects.all()), len(Album.objects.all())]
+    context = {'historial': request.session['historial'], 'counts': count_list}
+    return render(request, 'maps_charts.html', context)

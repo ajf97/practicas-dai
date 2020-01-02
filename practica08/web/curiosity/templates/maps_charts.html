@@ -9,6 +9,8 @@ crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
    crossorigin=""></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
 {% endblock %}
 {% block content %}
 <br>
@@ -47,6 +49,45 @@ crossorigin=""/>
       
         var marker = L.marker(latlng).addTo(mymap);
       });
+</script>
+
+
+<div id="grafica" style="width:100%; height:400px;"></div>
+<script>
+
+var musicalgroup_count = '{{ counts.0 }}';
+var musician_count = '{{ counts.1 }}';
+var album_count = '{{ counts.2 }}';
+
+document.addEventListener('DOMContentLoaded', function () {
+        var myChart = Highcharts.chart('grafica', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Número de registros en base de datos'
+            },
+            xAxis: {
+                categories: ['Modelos']
+            },
+            yAxis: {
+                title: {
+                    text: 'Registros'
+                }
+            },
+            series: [{
+                name: 'Grupos músicales',
+                data: [Number(musicalgroup_count)]
+            }, {
+                name: 'Músicos',
+                data: [Number(musician_count)]
+            },{
+                name: 'Álbumes',
+                data: [Number(album_count)]
+            }
+        ]
+        });
+    });
 </script>
 
 {% endblock %}
