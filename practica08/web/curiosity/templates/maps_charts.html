@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             yAxis: {
                 title: {
-                    text: 'Registros'
+                    text: 'Número de registros'
                 }
             },
             series: [{
@@ -88,6 +88,55 @@ document.addEventListener('DOMContentLoaded', function () {
         ]
         });
     });
+</script>
+
+
+<div id="grafica2" style="width:100%; height:400px;"></div>
+<script>
+    console.log('{{ albumcounts.0 }}');
+    Highcharts.chart('grafica2', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Número de álbumes por grupo'
+    },
+    xAxis: {
+        categories: [
+            'Álbum'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Cantidad de álbumes'
+        }
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: '{{ groupnames.0 }}',
+        data: [Number('{{ albumcounts.0 }}')]
+
+    }, {
+        name: '{{ groupnames.1 }}',
+        data: [Number('{{ albumcounts.1 }}')]
+
+    }, {
+        name: '{{ groupnames.2 }}',
+        data: [Number('{{ albumcounts.2 }}')]
+
+    }, {
+        name: '{{ groupnames.3 }}',
+        data: [Number('{{ albumcounts.3 }}')]
+
+    }]
+});
 </script>
 
 {% endblock %}

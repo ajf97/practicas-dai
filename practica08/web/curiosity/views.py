@@ -260,5 +260,7 @@ def reclama_datos(request):
 def maps_charts(request):
     historial(request, (reverse('maps_charts'), 'Mapas y gráficas'))
     count_list = [len(MusicalGroup.objects.all()), len(Musician.objects.all()), len(Album.objects.all())]
-    context = {'historial': request.session['historial'], 'counts': count_list}
+    group_names = [ i['name']  for i in MusicalGroup.objects.values('name')[:4]]
+    album_counts = [Album.objects.filter(musicalgroup__name=name).count() for name in group_names]
+    context = {'historial': request.session['historial'], 'counts': count_list, 'groupnames': group_names, 'albumcounts': album_counts}
     return render(request, 'maps_charts.html', context)
