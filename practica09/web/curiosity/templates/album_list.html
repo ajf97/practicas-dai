@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Álbums{% endblock %}
+{% block content %}
+
+    <div style="text-align: center;">
+        <div class="card" style="text-align: center;">
+            <ul class="list-group list-group-flush">
+                {% for album in albums %}
+                <li class="list-group-item"><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <br>
+        <a class="btn btn-secondary" href="{% url 'album_new'%}">Crear álbum</a>
+    </div>
+
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ album.title }}{% endblock %}
+{% block content %}
+
+<div class="album" style="text-align: center;">
+    <br>
+    <h2>{{ album.title }}</h2>
+    <p>Fecha de lanzamiento: {{ album.release_date }}</p>
+    <p>Distribuidor: {{ album.record_company }}</p>
+    <p>Grupo musical: {{ album.musicalgroup.name }}</p>
+    <a class="btn btn-primary" href="{% url 'album_edit' pk=album.pk %}">Editar</a>
+    <a class="btn btn-danger" href="{% url 'album_delete' pk=album.pk %}">Borrar</a>
+</div>
+
+{% endblock %}
