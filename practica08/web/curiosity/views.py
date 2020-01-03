@@ -219,7 +219,9 @@ def musicalgroup_list(request):
 @login_required
 def musicalgroup_detail(request, pk):
     musicalgroup = get_object_or_404(MusicalGroup, pk=pk)
-    return render(request, 'musicalgroup_detail.html', {'musicalgroup': musicalgroup, 'musicians': musicalgroup.musicians.all()})
+    context = {'musicalgroup': musicalgroup, 'albums': Album.objects.filter(musicalgroup=pk) ,
+                'musicians': musicalgroup.musicians.all()}
+    return render(request, 'musicalgroup_detail.html', context)
 
 
 @login_required
@@ -261,6 +263,6 @@ def maps_charts(request):
     historial(request, (reverse('maps_charts'), 'Mapas y gráficas'))
     count_list = [len(MusicalGroup.objects.all()), len(Musician.objects.all()), len(Album.objects.all())]
     group_names = [ i['name']  for i in MusicalGroup.objects.values('name')[:4]]
-    album_counts = [Album.objects.filter(musicalgroup__name=name).count() for name in group_names]
+    album_counts = [Album.objects.filter(musicalgroup__name=i).count() for i in group_names]
     context = {'historial': request.session['historial'], 'counts': count_list, 'groupnames': group_names, 'albumcounts': album_counts}
     return render(request, 'maps_charts.html', context)

@@ -12,8 +12,13 @@
     {%for musician in musicians %}
     <p>{{musician.name}}</p>
     {%endfor%}
+    {% if albums %}
     <h3>Discografía</h3>
-    <p>{{musicalgroup.albums}}</p>
+    {%for album in albums%}
+    <p>{{album.title}}</p>
+    {%endfor%}
+    {%endif%}
+    
     
     <a class="btn btn-primary" href="{% url 'musicalgroup_edit' pk=musicalgroup.pk %}">Editar</a>
     <a class="btn btn-danger" href="{% url 'musicalgroup_delete' pk=musicalgroup.pk %}">Borrar</a>
