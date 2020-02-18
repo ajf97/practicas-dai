@@ -26,18 +26,18 @@ En esta práctica se utiliza el framework CSS boostrap para cambiar la aparienci
 
 El objetivo de esta práctica es adaptar todo lo realizado anteriormente a otro framework web más complejo.
 
-# Práctica 6: Django II
+## Práctica 6: Django II
 
 En esta práctica se profundiza en el uso de Djando realizando modelos, validaciones, formularios y login.
 
-# Práctica 7: jQuery y AJAX
+## Práctica 7: jQuery y AJAX
 
 En esta práctica se usa jQuery para añadir dinamismo, haciendo que lo elementos CSS cambien de forma dinámica al presionar algún botón. A continuación se realiza un paginador en AJAX para que haga peticiones de forma asíncrona.
 
-# Práctica 8: Mapas y geolocalización
+## Práctica 8: Mapas y geolocalización
 
 Se añaden mapas que indican la posición actual del usuario y gráficas con estadísticas de la página.
 
-# Práctica 9: Despliegue 
+## Práctica 9: Despliegue 
 
 Finalmente, en la última práctica se realiza el despliegue en heroku.
